@@ -33,17 +33,17 @@ class Parser:
         protocol = None
 
         if packet.haslayer(IP):
-            version = 4
+            version = "IPv4"
             src = packet[IP].src
             dst = packet[IP].dst
 
         elif packet.haslayer(IPv6):
-            version = 6
+            version = "IPv6"
             src = packet[IPv6].src
             dst = packet[IPv6].dst
 
         elif packet.haslayer(ARP):
-            version = 4
+            version = "IPv4"
             src = packet[ARP].psrc
             dst = packet[ARP].pdst
             protocol = "ARP"
